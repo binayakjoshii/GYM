@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FitLife Gym</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#0f172a;
+      color:white;
+      scroll-behavior:smooth;
+    }
+
+    /* NAVBAR */
+    header{
+      position:fixed;
+      width:100%;
+      top:0;
+      left:0;
+      z-index:1000;
+      background:rgba(15,23,42,0.8);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+
+    nav{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 20px;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:#38bdf8;
+    }
+
+    .nav-links{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:white;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#38bdf8;
+    }
+
+    /* HERO SECTION */
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    .hero-content{
+      max-width:800px;
+      animation:fadeIn 1.5s ease;
+    }
+
+    .hero h1{
+      font-size:64px;
+      margin-bottom:20px;
+      line-height:1.1;
+    }
+
+    .hero p{
+      font-size:20px;
+      color:#cbd5e1;
+      margin-bottom:35px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 32px;
+      background:#38bdf8;
+      color:white;
+      text-decoration:none;
+      border-radius:50px;
+      font-size:18px;
+      font-weight:bold;
+      transition:0.3s;
+      box-shadow:0 0 20px rgba(56,189,248,0.4);
+    }
+
+    .btn:hover{
+      background:#0ea5e9;
+      transform:translateY(-3px);
+    }
+
+    /* SECTION */
+    section{
+      padding:100px 20px;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    h2{
+      font-size:42px;
+      margin-bottom:20px;
+      text-align:center;
+    }
+
+    .section-text{
+      text-align:center;
+      color:#cbd5e1;
+      max-width:700px;
+      margin:0 auto 50px;
+      line-height:1.7;
+    }
+
+    /* SERVICES */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:#1e293b;
+      padding:35px;
+      border-radius:20px;
+      transition:0.3s;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:#38bdf8;
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      color:#38bdf8;
+    }
+
+    .card p{
+      color:#cbd5e1;
+      line-height:1.6;
+    }
+
+    /* CONTACT */
+    .contact-form{
+      max-width:700px;
+      margin:auto;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea{
+      padding:15px;
+      border:none;
+      border-radius:12px;
+      background:#1e293b;
+      color:white;
+      outline:none;
+    }
+
+    .contact-form textarea{
+      height:150px;
+      resize:none;
+    }
+
+    .contact-form button{
+      padding:15px;
+      border:none;
+      border-radius:12px;
+      background:#38bdf8;
+      color:white;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .contact-form button:hover{
+      background:#0ea5e9;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      background:#020617;
+      color:#94a3b8;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    /* ANIMATION */
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .nav-links{
+        gap:15px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav>
+      <div class="logo">FitLife Gym</div>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-content">
+      <h1>Transform Your Body & Mind</h1>
+
+      <p>
+        Join FitLife Gym and start your journey towards a healthier,
+        stronger, and more confident you.
+      </p>
+
+      <a href="#services" class="btn">Start Training</a>
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+
+      <h2>About Us</h2>
+
+      <p class="section-text">
+        FitLife Gym provides world-class equipment, certified trainers,
+        and a motivating environment to help you achieve your fitness goals.
+        Whether you're building muscle, losing weight, or improving endurance,
+        we are here to support your journey.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+
+      <h2>Our Services</h2>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Personal Training</h3>
+          <p>
+            Train one-on-one with expert fitness coaches and achieve
+            faster results.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Group Classes</h3>
+          <p>
+            High-energy group sessions including cardio, strength,
+            yoga, and HIIT workouts.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Nutrition Plans</h3>
+          <p>
+            Customized meal and nutrition guidance tailored to your goals.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+
+      <h2>Contact Us</h2>
+
+      <form class="contact-form">
+
+        <input type="text" placeholder="Your Name" required>
+
+        <input type="email" placeholder="Your Email" required>
+
+        <textarea placeholder="Your Message"></textarea>
+
+        <button type="submit">Send Message</button>
+
+      </form>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 FitLife Gym. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+
+    // Simple smooth animation on button click
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+      anchor.addEventListener('click', function(e) {
+
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href'))
+        .scrollIntoView({
+          behavior: 'smooth'
+        });
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
